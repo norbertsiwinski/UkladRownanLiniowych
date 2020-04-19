@@ -11,7 +11,7 @@ using namespace std;
 
 int main()
 {
-  UkladRownanLiniowych UklRown;   
+    
 
   
   cout << endl << " Start programu " << endl;
