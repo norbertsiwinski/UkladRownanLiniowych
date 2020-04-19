@@ -34,12 +34,14 @@ const Macierz operator *(double B);
 
 const Macierz transponuj() const;
 void Transponuj();
+ /*const Macierz dopelnien(int x, int y)const;
+const Macierz odwracaj() const; */
 
-const Macierz odwracaj() const;
 
 double wyznacznik(); /* na razie tylo SARRUS */
 
-
+bool operator==(const Macierz & W2)const;
+bool operator !=(const Macierz & W2)const;
 
 };
 

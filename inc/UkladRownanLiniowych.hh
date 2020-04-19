@@ -2,6 +2,7 @@
 #define UKLADROWNANLINIOWYCH_HH
 
 #include <iostream>
+#include "Macierz.hh"
 
 
 /*
@@ -9,13 +10,20 @@
  *  i jakie ma glowne cechy.
  */
 class UkladRownanLiniowych {
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich pol i metod prywatnych
-   */
+
+Macierz A;
+Wektor b;
+
+
   public:
-  /*
-   *  Tutaj trzeba wstawic definicje odpowiednich metod publicznych
-   */    
+ UkladRownanLiniowych() {};
+ UkladRownanLiniowych (Macierz _A, Wektor _b): A(_A), b(_b) {};
+  const Macierz & get_A() const;
+  const Wektor & get_b() const;
+ void set_A(const Macierz & AA) ;
+  void set_b(const Wektor & bb) ;
+
+ Wektor Oblicz() const;
 };
 
 
@@ -27,6 +35,8 @@ class UkladRownanLiniowych {
  *    ~bk/edu/kpo/zalecenia.txt 
  */
 std::istream& operator >> (std::istream &Strm, UkladRownanLiniowych &UklRown);
+
+
 
 /*
  * To przeciazenie trzeba opisac. Co ono robi. Jaki format

@@ -2,57 +2,44 @@
 #include "Wektor.hh"
 #include "Macierz.hh"
 #include "UkladRownanLiniowych.hh"
+#include <fstream>
 
 
 
 using namespace std;
 
-/*
- * Tu definiujemy pozostale funkcje.
- * Lepiej jednak stworzyc dodatkowy modul
- * i tam je umiescic. Ten przyklad pokazuje
- * jedynie absolutne minimum.
- */
-
 
 int main()
 {
-  UkladRownanLiniowych UklRown;   // To tylko przykladowe definicje zmiennej
+  UkladRownanLiniowych UklRown;   
 
   
-  cout << endl << " Start programu " << endl << endl;
+  cout << endl << " Start programu " << endl;
 
- Wektor W1(1,2,3); 
- Wektor W2(1,2,3);
- Wektor W3(3,2,1);
- Wektor W11(1,1,1); 
- Wektor W22(1,1,1);
- Wektor W33(1,1,1);
- 
-
- 
-cout<<3*W1;
+Wektor W1; 
+Macierz M1;
+Wektor X;
 
 
-W1.dlugosc();
-cout<<endl;
+  cin >> M1>> W1;
+  UkladRownanLiniowych U(M1,W1);
+  
+  cout << U;
 
 
-Macierz M1(W1,W2,W3);
-Macierz M2(W11,W22,W33);
-cout<<endl;
+X=U.Oblicz();
+
+cout << "Rozwiazanie x: ";
+cout << X;
 
 
-cout<<endl;
+Wektor Err=M1*X-W1;
 
-M1.transponuj();
-cout<<endl;
-
-cout <<M1;
-
-M1.Transponuj();
-
-cout<<M1;
-
+cout<< "Blad: " << Err << "Dlugosci: " << Err.dlugosc()<< endl;
 
 }
+
+
+
+
+

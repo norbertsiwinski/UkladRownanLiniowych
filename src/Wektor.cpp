@@ -102,30 +102,32 @@ double Wektor::dlugosc()const {
   for(int i=0; i<ROZMIAR;i++)
   dlug=(dlug + tab[i]*tab[i]);
   dlug=sqrt(dlug);
-cout<<dlug;
+
 
 return dlug;
 }
   
 bool Wektor::operator==(const Wektor & W2)const{
 
-if(tab[0]==W2[0] && tab[1]==W2[1] && tab[2]==W2[2])
+double epsilon=0.00001;
 
-return true;
+for(int i=0; i<ROZMIAR;i++){
+if(abs(tab[i]-W2[i]) > epsilon)
 
-else
-{
-  return false;
+return false;
+
 }
+
+  return true;
 }
+
 bool Wektor::operator!=(const Wektor & W2)const{
 
-if(tab[0]!=W2[0] || tab[1]!=W2[1] || tab[2]!=W2[2])
-
-return true;
+if(*this==W2)
+return false;
 else
 {
-  return false;
+  return true;
 }
 
 }
@@ -142,7 +144,7 @@ return Strm;
 
 std::ostream & operator << (std::ostream &strm, const Wektor &W){
 
-strm<<"("<<W[0] <<","<< W[1] <<","<< W[2]<< ")"<<endl;
+strm<<"|"<<W[0] <<" "<< W[1] <<" "<< W[2]<< "|"<<endl;
 return strm;
 
  }
